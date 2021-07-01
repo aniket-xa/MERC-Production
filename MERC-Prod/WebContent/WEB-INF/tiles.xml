@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="layoutBlank"
+		template="/jsp/tiles/layoutblank.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="layoutBase"
+		template="/jsp/tiles/layoutbase.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="mainmenu"
+			value="/jsp/tiles/mainMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="layoutBaseNoTabs"
+		template="/jsp/tiles/layoutbaseNoTabs.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="mainmenu"
+			value="/jsp/tiles/mainMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="layoutBaseWithSidebar"
+		template="/jsp/tiles/layoutbaseWithSidebar.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="mainmenu"
+			value="/jsp/tiles/mainMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="sidebar" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="layoutBaseNoMenu"
+		template="/jsp/tiles/layoutbaseNoMenu.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+
+
+<!-- 27-04-2020 start SH -->
+<definition name="layoutBaseWithSidebarWelcomePage"
+		template="/jsp/tiles/layoutbaseWithSidebarWelcomePage.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="mainmenu"
+			value="/jsp/tiles/mainMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="sidebar" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="layoutBaseNoTabsWithAlignment"
+		template="/jsp/tiles/layoutbaseNoTabsWithAlignment.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="mainmenu"
+			value="/jsp/tiles/mainMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="layoutBaseWithFixedFooter"
+		template="/jsp/tiles/layoutbaseWithFixedFooter.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/jsp/tiles/header.jsp" />
+		<put-attribute name="mainmenu"
+			value="/jsp/tiles/mainMenu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/jsp/tiles/footer.jsp" />
+	</definition>
+<!-- 27-04-2020 end SH -->
+
+	<definition name="/global.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/global/Errors.jsp" />
+	</definition>
+
+	<definition name="/registrationFormToken.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/global/Errors.jsp" />
+	</definition>
+
+	<definition name="/exception.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/exception/Exception.jsp" />
+	</definition>
+
+	<definition name="/error.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/exception/Errors.jsp" />
+	</definition>
+
+
+	<definition name="/welcome.tiles"
+		extends="layoutBaseWithSidebar">
+		<put-attribute name="body"
+			value="/jsp/tiles/welcome.jsp" />
+		<put-attribute name="sidebar"
+			value="/jsp/tiles/welcomeSidebar.jsp" />
+	</definition>
+
+	<definition name="/changePassword.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/changePassword.jsp" />
+	</definition>
+
+	<definition name="/registrationForm.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/newRegistration/RegistrationForm.jsp" />
+	</definition>
+
+	<definition name="/registrationOtp.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/otp.jsp" />
+	</definition>
+	
+	<definition name="/updateMobile.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/updateMobileOtp.jsp" />
+	</definition>
+	
+	<definition name="/registrationSuccess.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/success.jsp"/>
+	</definition>
+
+	<definition name="/inProcess.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/newRegistration/inProcess.jsp" />
+	</definition>
+
+	<definition name="/forClarification.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/newRegistration/forClarification.jsp" />
+	</definition>
+	<definition name="/forClarificationRejection.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/newRegistration/forClarificationRejection.jsp" />
+	</definition>
+	<definition name="/eFileDisclaimer.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/eFileDisclaimer.jsp" />
+	</definition>
+	<definition name="/filingGeneralInformation.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingGeneralInformation.jsp" />
+	</definition>
+
+	<definition name="/filingCourtDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingCourtDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingCourtDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingCourtDetails.jsp" />
+	</definition>
+
+	<definition name="/identicalCaseDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/identicalCaseDetailsList.jsp" />
+	</definition>
+
+	<definition name="/identicalCaseDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/identicalCaseDetails.jsp" />
+	</definition>
+
+	<definition name="/relatedCaseDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/relatedCaseDetailsList.jsp" />
+	</definition>
+
+	<definition name="/relatedCaseDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/relatedCaseDetails.jsp" />
+	</definition>
+
+
+	<definition name="/filingDocumentDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingDocumentDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingDocumentDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingDocumentDetails.jsp" />
+	</definition>
+
+	<definition name="/filingAttachmentOtherDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAttachmentOtherDetails.jsp" />
+	</definition>
+
+	<definition name="/filingFeeDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingFeeDetails.jsp" />
+	</definition>
+
+	<definition name="/filingCheckList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingCheckList.jsp" />
+	</definition>
+
+	<definition name="/filingPartyDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingPartyDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingPartyDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingPartyDetails.jsp" />
+	</definition>
+
+	<definition name="/filingPrayerDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingPrayerDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingPrayerDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingPrayerDetails.jsp" />
+	</definition>
+
+	<definition name="/filingAdvocateDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAdvocateDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingAdvocateDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAdvocateDetails.jsp" />
+	</definition>
+
+	<definition name="/filingSummary.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingSummary.jsp" />
+	</definition>
+
+	<definition name="/pleadingRejoinderDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/pleadings/pleadingRejoinderDetails.jsp" />
+	</definition>
+
+	<definition name="/filingTechnicalValidationDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingTechnicalValidationDetails.jsp" />
+	</definition>
+
+	<definition name="/pleadingSubmissionDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/pleadingSubmissionDetails.jsp" />
+	</definition>
+
+	<definition
+		name="/pleadingAdditionalInformationDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/pleadings/pleadingAdditionalInformationDetails.jsp" />
+	</definition>
+
+	<definition name="/filingRespondentDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingRespondentDetailsList.jsp" />
+	</definition>
+
+	<definition name="/pleadingList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/pleadingList.jsp" />
+	</definition>
+
+	<definition name="/pleadingReplyCommentsDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/pleadingReplyCommentsDetails.jsp" />
+	</definition>
+
+	<definition name="/filingInitialScrutinyList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingInitialScrutinyList.jsp" />
+	</definition>
+	
+	
+	<!--Approvl Start -->
+	<definition name="/filingOtherAuthoritiesDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingOtherAuthoritiesDetailsList.jsp" />
+		</definition>	
+			
+			
+<definition name="/filingNodalOfficerDetails2.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingNodalOfficerDetails2.jsp" />
+	</definition>
+	
+	<definition name="/viewNodalOfficerVerificationPetitions.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewNodalOfficerVerificationPetitions.jsp" />
+	</definition>
+	<definition name="/filingOtherAuthoritiesDetailsList3.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingOtherAuthoritiesDetailsList3.jsp" />
+	</definition>
+
+	<!--Aprovl end -->
+	
+	
+	<definition name="/filingRemovingDeficiencyDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingRemovingDeficiencyDetails.jsp" />
+	</definition>
+
+	<definition name="/filingTechnicalValidationList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingTechnicalValidationList.jsp" />
+	</definition>
+	<definition name="/viewUserRegistrationCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/newRegistration/viewUserRegistrationCountList.jsp" />
+	</definition>
+	<definition name="/viewDraftPetitionsCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewDraftPetitionsCountList.jsp" />
+	</definition>
+	<definition name="/filingAssetsDetailList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAssetsDetailList.jsp" />
+	</definition>
+	<definition name="/waitCercProcess.tiles"
+		extends="layoutBase">
+		<put-attribute name="body" value="/jsp/tiles/wait.jsp" />
+	</definition>
+	<definition name="/viewFiledPetitionsCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewFiledPetitionsCountList.jsp" />
+	</definition>
+	<definition name="/respondentMappingList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/respondentMappingList.jsp" />
+	</definition>
+	<definition name="/respondentMapping.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/respondentMapping.jsp" />
+	</definition>
+	<definition name="/assetMasterList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/assetMasterList.jsp" />
+	</definition>
+	<definition name="/assetMaster.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/assetMaster.jsp" />
+	</definition>
+	<definition name="/assetMasterEdit.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/assetMasterEdit.jsp" />
+	</definition>
+	<definition name="/addNewGenerationTransmission.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/addNewGenerationTransmission.jsp" />
+	</definition>
+	<definition name="/viewReplyCommentRejoinder.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/viewReplyCommentRejoinder.jsp" />
+	</definition>
+	<definition name="/projectStationMasterList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/projectStationMasterList.jsp" />
+	</definition>
+	<definition name="/userList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/userList.jsp" />
+	</definition>
+	<definition name="/utrMasterList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/utrMasterList.jsp" />
+	</definition>
+	<definition name="/gatwayutrMasterList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/gatwayutrMasterList.jsp" />
+	</definition>
+	<definition name="/utrMaster.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/utrMaster.jsp" />
+			</definition>
+			
+			<definition name="/utrpayonline.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/utrpayonline.jsp" />
+			
+	</definition>
+	
+	<definition name="/utrpaysucces.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/utrpaysucces.jsp" />
+			</definition>
+			
+				<definition name="/utrpaysucfail.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/utrpaysucfail.jsp" />
+			
+	</definition>
+			
+			
+	<definition name="/birt.tiles" extends="layoutBase">
+		<put-attribute name="body" value="/jsp/report/birt.jsp" />
+	</definition>
+	<definition name="/viewRegisteredPetitionsCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewRegisteredPetitionsCountList.jsp" />
+	</definition>
+	<definition name="/viewDisposedPetitionsCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewDisposedPetitionsCountList.jsp" />
+	</definition>
+	<definition name="/viewRejectedPetitionsCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewRejectedPetitionsCountList.jsp" />
+	</definition>
+	<definition name="/viewPendingUTRCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewPendingUTRCountList.jsp" />
+	</definition>
+	<definition name="/viewPendingUTR.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/viewPendingUTR.jsp" />
+	</definition>
+	<definition name="/guestLoginPage.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body" value="/guestLoginPage.jsp" />
+	</definition>
+	<definition name="/forgetPassword.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/forgetPassword.jsp" />
+	</definition>
+	<definition name="/forgotPasswordSuccess.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/forgotPasswordSuccess.jsp" />
+	</definition>
+
+	<definition name="/reportTemplate.tiles"
+		extends="layoutBaseNoTabsWithAlignment">
+		<put-attribute name="body"
+			value="/jsp/tiles/reportTemplate.jsp" />
+	</definition>
+
+	<definition name="/miscSearch.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/miscSearch.jsp" />
+	</definition>
+
+	<definition name="/filingFeeAdjustmentDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingFeeAdjustmentDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingFeeAdjustmentDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingFeeAdjustmentDetails.jsp" />
+	</definition>
+
+	<definition name="/filingFeeAdjustment.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingFeeAdjustment.jsp" />
+	</definition>
+
+	<definition name="/annualFee.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/annualFee.jsp" />
+	</definition>
+	<definition name="/assetsForAnnualFee.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/assetsForAnnualFee.jsp" />
+	</definition>
+	<definition name="/annualFeeDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/annualFeeDetails.jsp" />
+	</definition>
+	<definition name="/miscSearchResult.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/miscSearchResult.jsp" />
+	</definition>
+	<definition name="/documentAuthorisationList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/documentAuthorisationList.jsp" />
+	</definition>
+	<definition name="/documentAuthorisation.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/documentAuthorisation.jsp" />
+	</definition>
+
+	<definition name="/viewPetitionsForRegistrationList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewPetitionsForRegistrationList.jsp" />
+	</definition>
+
+	<definition name="/petitionRegistrationDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/petitionRegistrationDetails.jsp" />
+	</definition>
+
+	<definition name="/cercCommunication.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/pleadings/cercCommunication.jsp" />
+	</definition>
+
+	<definition name="/changePetitionStatusList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/changePetitionStatusList.jsp" />
+	</definition>
+
+	<definition name="/changePetitionStatusSearch.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/changePetitionStatusSearch.jsp" />
+	</definition>
+	<definition name="/viewCommunication.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/viewCommunication.jsp" />
+	</definition>
+	<definition name="/deficienciesList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/deficiencies/deficienciesList.jsp" />
+	</definition>
+	<definition name="/deficiencyPetitionDetailsFacade.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/deficiencies/deficiencyPetitionDetailsFacade.jsp" />
+	</definition>
+	<definition name="/deficiencyPetitionDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/deficiencies/deficiencyPetitionDetails.jsp" />
+	</definition>
+	<definition name="/petitionerDeficienciesPetitionList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/deficiencies/petitionerDeficienciesPetitionList.jsp" />
+	</definition>
+	<definition name="/petitionerDeficienciesList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/deficiencies/petitionerDeficienciesList.jsp" />
+	</definition>
+	<definition name="/viewEditDeficiencies.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/deficiencies/viewEditDeficiencies.jsp" />
+	</definition>
+
+	<definition name="/dataMigration.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/dataMigration.jsp" />
+	</definition>
+
+	<definition name="/mergeFilesManuallyForm.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/mergeFilesManually/mergeFilesManuallyForm.jsp" />
+	</definition>
+
+	<definition name="/filingAssetDetailsView.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAssetDetailsView.jsp" />
+	</definition>
+
+	<definition name="/filingReportsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingReportsList.jsp" />
+	</definition>
+
+	<definition name="/helpList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/help/helpList.jsp" />
+	</definition>
+	<definition name="/index.tiles" extends="layoutBlank">
+		<put-attribute name="body" value="/index.jsp" />
+	</definition>
+
+	<definition name="/aboutUs.tiles" extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/aboutUs.jsp" />
+	</definition>
+
+	<definition name="/contactUs.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/contactUs.jsp" />
+	</definition>
+
+	<definition name="/viewAlertCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/viewAlertCountList.jsp" />
+	</definition>
+	<definition name="/viewAlertDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/viewAlertDetails.jsp" />
+	</definition>
+	<definition name="/viewUserProfile.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/viewUserProfile.jsp" />
+	</definition>
+	<definition name="/editUserProfile.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/editUserProfile.jsp" />
+	</definition>
+
+	<definition name="/noticeList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/notice/noticeList.jsp" />
+	</definition>
+
+	<definition name="/ropOrderList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/rop/ropOrderList.jsp" />
+	</definition>
+
+	<definition name="/openSummaryReport.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingSummary_report.jsp" />
+	</definition>
+
+	<definition name="/openReportTemplateReport.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/reportTemplate_report.jsp" />
+	</definition>
+
+	<definition name="/openAcknowledgement.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/openAcknowledgement.jsp" />
+	</definition>
+
+	<definition name="/openReferenceAcknowledgement.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/openReferenceAcknowledgement.jsp" />
+	</definition>
+
+	<definition name="/printUtrDetailsReport.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/printUtrDetailsReport_report.jsp" />
+	</definition>
+
+	<definition name="/openPetitionSummary.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/openPetitionSummary.jsp" />
+	</definition>
+
+	<definition name="/resetPassword.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/resetPassword.jsp" />
+	</definition>
+
+	<definition name="/filingNodalOfficerDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingNodalOfficerDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingNodalOfficerDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingNodalOfficerDetails.jsp" />
+	</definition>
+
+	<!-- Advocate Details -->
+
+	<definition name="/filingAdvocateDetailsList.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAdvocateDetailsList.jsp" />
+	</definition>
+
+	<definition name="/filingAdvocateDetails.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingAdvocateDetails.jsp" />
+	</definition>
+
+	<definition name="/cercPetitionPleadingList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/cercPetitionPleadingList.jsp" />
+	</definition>
+	<definition name="/viewDashboardPleadingDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewDashboardPleadingDetails.jsp" />
+	</definition>
+
+	<definition name="/changeRespondentOrder.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/changeRespondentOrder.jsp" />
+	</definition>
+	<definition name="/communicationToAllList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/communicationToAllList.jsp" />
+	</definition>
+	<definition name="/composeMail.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/composeMail.jsp" />
+	</definition>
+	<definition name="/viewBulkCommunication.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/viewBulkCommunication.jsp" />
+	</definition>
+	<definition name="/assetNotMapped.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/assetNotMapped.jsp" />
+	</definition>
+	<definition name="/regulatoryComplainceList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/regulatoryComplainceList.jsp" />
+	</definition>
+	<definition name="/addRegulatoryCompliance.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/addRegulatoryCompliance.jsp" />
+	</definition>
+	<definition name="/viewComplianceDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/pleadings/viewComplianceDetails.jsp" />
+	</definition>
+	<definition name="/ia.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/iaList.jsp" />
+	</definition>
+	<definition name="/LicenceSearch.tiles" extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/LicenceSearch.jsp" />
+	</definition>
+	<definition name="/LicenceSearchResult.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/LicenceSearchResult.jsp" />
+	</definition>
+	<definition name="/stakeholderFeedbackForm.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderFeedback/stakeholderFeedbackForm.jsp" />
+	</definition>
+	<definition name="/stakeholderFeedbackFormSubmit.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderFeedback/stakeholderFeedbackFormSubmit.jsp" />
+	</definition>
+	<definition name="/stakeholderFeedbackList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderFeedback/stakeholderFeedbackList.jsp" />
+	</definition>
+	<definition name="/stakeholderFeedBackViewDetails.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderFeedback/stakeholderFeedBackViewDetails.jsp" />
+	</definition>
+	<definition name="/cercSiteMap.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/help/cercSiteMap.jsp" />
+	</definition>
+	<definition name="/communicationTypeSearch.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/communicationTypeSearch.jsp" />
+	</definition>
+
+	<definition name="/communicationTypeSearchResult.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/communicationTypeSearchResult.jsp" />
+	</definition>
+
+	<definition name="/assetMasterSearch.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/assetMasterSearch.jsp" />
+	</definition>
+
+	<definition name="/assetMasterSearchResult.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/assetMasterSearchResult.jsp" />
+	</definition>
+
+	<definition name="/utrMasterSearch.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/utrMasterSearch.jsp" />
+	</definition>
+
+	<definition name="/utrMasterSearchResult.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/utrMasterSearchResult.jsp" />
+	</definition>
+
+	<definition name="/stakeholderUploadForm.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderUploadDocument/stakeholderUploadForm.jsp" />
+	</definition>
+
+	<definition name="/stakeholderUploadFormSubmit.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderUploadDocument/stakeholderUploadFormSubmit.jsp" />
+	</definition>
+
+	<definition name="/stakeholderUploadDocumentList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/stakeholderUploadDocument/stakeholderUploadDocumentList.jsp" />
+	</definition>
+
+	<definition name="/utrMasterEdit.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/utrMasterEdit.jsp" />
+	</definition>
+
+	<definition
+		name="/openStakeholderUploadDocumentSummaryReport.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/admin/stakeholderUploadDocument_report.jsp" />
+	</definition>
+
+	<definition name="/stakeholderUploadDocumentreport.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/tiles/stakeholderUploadDocumentreport.jsp" />
+	</definition>
+
+	<definition name="/viewHardCopyRecieved.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewHardCopyRecieved.jsp" />
+	</definition>
+
+	<definition name="/viewPleadingHardCopyRecieved.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewPleadingHardCopyRecieved.jsp" />
+	</definition>
+
+	<definition
+		name="/viewPetitionUnderScrutinyHardCopyRecieved.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewPetitionUnderScrutinyHardCopyRecieved.jsp" />
+	</definition>
+
+	<definition
+		name="/viewFiledPetitionsUnderWaiverCountList.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/filing/viewFiledPetitionsUnderWaiverCountList.jsp" />
+	</definition>
+
+	<definition name="/filingFeeDetailsEdit.tiles"
+		extends="layoutBase">
+		<put-attribute name="body"
+			value="/jsp/filing/filingFeeDetailsEdit.jsp" />
+	</definition>
+
+	<definition name="/reportTemplate1.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/reportTemplate1.jsp" />
+	</definition>
+
+	<definition name="/utrMasterSearch1.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/utrMasterSearch1.jsp" />
+	</definition>
+
+	<definition name="/utrMasterSearch1Result.tiles"
+		extends="layoutBaseNoTabs">
+		<put-attribute name="body"
+			value="/jsp/tiles/utrMasterSearch1Result.jsp" />
+	</definition>
+
+</tiles-definitions>
+
+
+	

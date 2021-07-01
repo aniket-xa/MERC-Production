@@ -1,0 +1,1683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="petitionId" id="406">
+            <text-property name="promptText">Petition Id</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">decimal</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="cercDataSource" id="114">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://10.48.27.66:5432/merc</property>
+            <property name="odaUser">cerc</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">c3VwcDBydCRNRVJD</encrypted-property>
+            <property name="odaJndiName">java:/comp/env/java/merc</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="cercPetitionDataSet" id="354">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">registration_number_display</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">registration_number_display</text-property>
+                    <text-property name="heading">registration_number_display</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">diary_number_display</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">diary_number_display</text-property>
+                    <text-property name="heading">diary_number_display</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">diary</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">diary</text-property>
+                    <text-property name="heading">diary</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">filed_on</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">filed_on</text-property>
+                    <text-property name="heading">filed_on</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nature_of_petition</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">nature_of_petition</text-property>
+                    <text-property name="heading">nature_of_petition</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">petitioner</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">petitioner</text-property>
+                    <text-property name="heading">petitioner</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">respondent</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">respondent</text-property>
+                    <text-property name="heading">respondent</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">subject_keyword</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">subject_keyword</text-property>
+                    <text-property name="heading">subject_keyword</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">subject_description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">subject_description</text-property>
+                    <text-property name="heading">subject_description</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">fee_paid</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">fee_paid</text-property>
+                    <text-property name="heading">fee_paid</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ref_utr_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">ref_utr_id</text-property>
+                    <text-property name="heading">ref_utr_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">utr_number</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">utr_number</text-property>
+                    <text-property name="heading">utr_number</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">deposit_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">deposit_date</text-property>
+                    <text-property name="heading">deposit_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">publicaton</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">publicaton</text-property>
+                    <text-property name="heading">publicaton</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">copies</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">copies</text-property>
+                    <text-property name="heading">copies</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">affidavit</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">affidavit</text-property>
+                    <text-property name="heading">affidavit</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">annexure</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">annexure</text-property>
+                    <text-property name="heading">annexure</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">petition_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">petition_type</text-property>
+                    <text-property name="heading">petition_type</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">petitionId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">registration_number_display</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">diary_number_display</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">diary</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">filed_on</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">nature_of_petition</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">petitioner</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">respondent</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">subject_keyword</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">subject_description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">fee_paid</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">ref_utr_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">utr_number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">deposit_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">publicaton</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">copies</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">affidavit</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">annexure</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">petition_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">cercDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">registration_number_display</property>
+                    <property name="nativeName">registration_number_display</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">diary_number_display</property>
+                    <property name="nativeName">diary_number_display</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">diary</property>
+                    <property name="nativeName">diary</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">filed_on</property>
+                    <property name="nativeName">filed_on</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">nature_of_petition</property>
+                    <property name="nativeName">nature_of_petition</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">petitioner</property>
+                    <property name="nativeName">petitioner</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">respondent</property>
+                    <property name="nativeName">respondent</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">subject_keyword</property>
+                    <property name="nativeName">subject_keyword</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">subject_description</property>
+                    <property name="nativeName">subject_description</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">fee_paid</property>
+                    <property name="nativeName">fee_paid</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">ref_utr_id</property>
+                    <property name="nativeName">ref_utr_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">utr_number</property>
+                    <property name="nativeName">utr_number</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">deposit_date</property>
+                    <property name="nativeName">deposit_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">publicaton</property>
+                    <property name="nativeName">publicaton</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">copies</property>
+                    <property name="nativeName">copies</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">affidavit</property>
+                    <property name="nativeName">affidavit</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">annexure</property>
+                    <property name="nativeName">annexure</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">petition_type</property>
+                    <property name="nativeName">petition_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select registration_number_display,diary_number_display,diary_number_display||' &amp; '||to_char(filed_on,'dd/MM/yyyy') diary,filed_on,np.description nature_of_petition,
+usr.user_name petitioner,users.user_name respondent,
+subject.subject subject_keyword,p.subject as subject_description,fee_paid,ref_utr_id,utr_number,utr.deposit_date,
+(select case when status='N' then 'Yes' when status='Y' or status='A' then 'No' else status end status from cerc_checklist where cerc_petition_id=p.id and ref_checklist_id=203)publicaton,
+(select case when status='N' then 'Yes' when status='Y' or status='A' then 'No' else status end status from cerc_checklist where cerc_petition_id=p.id and ref_checklist_id=172)copies,
+(select case when status='N' then 'Yes' when status='Y' or status='A' then 'No' else status end status from cerc_checklist where cerc_petition_id=p.id and ref_checklist_id=163)affidavit,
+(select case when status='N' then 'Yes' when status='Y' or status='A' then 'No' else status end status from cerc_checklist where cerc_petition_id=p.id and ref_checklist_id=164)annexure,petition_type
+from cerc_petition p
+left join ref_petition_type pt on pt.id=p.ref_petition_type_id
+left join cerc_user usr on usr.id=p.cerc_user_petitioner_id
+left join cerc_petition_party_details party on party.cerc_petition_id=p.id
+left join cerc_user users on users.id=party.cerc_user_id and party_type='R' 
+and respondent_sequence=(select min(respondent_sequence) from cerc_petition_party_details where id=party.id) and users.id<>50
+left join ref_nature_of_petition np on np.id=p.ref_nature_of_petition_id
+left join ref_subject subject on subject.id=p.ref_subject_id
+left join cerc_petition_fee fee on fee.cerc_petition_id=p.id
+left join cerc_petition_utr pet_utr on pet_utr.cerc_petition_fee_id=fee.id
+left join ref_utr utr on utr.id=pet_utr.ref_utr_id where p.id= ? order by respondent_sequence]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>?column?</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>?column?</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>?column?</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>correspondence_address</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>correspondence_address</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>correspondence_address</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>city_name</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>city_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>city_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>state_name</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>state_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>state_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>correspondence_pin</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>6</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>correspondence_pin</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>correspondence_pin</design:label>
+            <design:formattingHints>
+              <design:displaySize>7</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>reference_number_display</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>reference_number_display</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>reference_number_display</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>diary_number_display</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>diary_number_display</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>diary_number_display</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>registration_number_display</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>registration_number_display</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>registration_number_display</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="petitionTypeDataSet" id="403">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">id</property>
+                    <text-property name="displayName">id</text-property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">petition_type</property>
+                    <text-property name="displayName">petition_type</text-property>
+                    <text-property name="heading">petition_type</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">petition_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">cercDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">petition_type</property>
+                    <property name="nativeName">petition_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select id,petition_type from ref_petition_type order by petition_type]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>petition_type</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>petition_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>petition_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">us-legal</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="7">
+            <property name="marginTop">10pt</property>
+            <property name="height">6.239583333333333in</property>
+            <property name="width">7.947916666666667in</property>
+            <column id="8">
+                <property name="width">0.5729166666666666in</property>
+            </column>
+            <column id="9">
+                <property name="width">3.8333333333333335in</property>
+            </column>
+            <column id="10">
+                <property name="width">3.5416666666666665in</property>
+            </column>
+            <row id="11">
+                <cell id="12">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <label id="111">
+                        <property name="fontSize">14pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">LAW DIVISION</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="15">
+                <cell id="16">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <label id="112">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">left</property>
+                        <text-property name="text">Details of the Petition :</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="411">
+                <cell id="412">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <data id="420">
+                        <property name="fontWeight">bold</property>
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">diary_number_display</property>
+                                <text-property name="displayName">diary_number_display</text-property>
+                                <expression name="expression" type="javascript">if(dataSetRow["diary_number_display"]==null)&#13;
+{&#13;
+"Diary Number : "&#13;
+}&#13;
+else&#13;
+{&#13;
+"Diary Number : "+dataSetRow["diary_number_display"]&#13;
+}</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">diary_number_display</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="407">
+                <property name="height">0.4375in</property>
+                <cell id="408">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <data id="419">
+                        <property name="fontWeight">bold</property>
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">registration_number_display</property>
+                                <text-property name="displayName">registration_number_display</text-property>
+                                <expression name="expression" type="javascript">if(dataSetRow["registration_number_display"]==null)&#13;
+{&#13;
+"Registration Number : "&#13;
+}&#13;
+else&#13;
+{&#13;
+"Registration Number : "+dataSetRow["registration_number_display"]&#13;
+}</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">registration_number_display</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="421">
+                <cell id="422">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="425">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Sl. No.</text-property>
+                    </label>
+                </cell>
+                <cell id="423">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="426">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Check Points</text-property>
+                    </label>
+                </cell>
+                <cell id="424">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="427">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Details as per the petitioner</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="19">
+                <cell id="20">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="333">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">1.</text-property>
+                    </label>
+                </cell>
+                <cell id="21">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="113">
+                        <text-property name="text">Diary No. &amp; Date</text-property>
+                    </label>
+                </cell>
+                <cell id="22">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="389">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">diary</property>
+                                <text-property name="displayName">diary</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["diary"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">diary</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="23">
+                <cell id="24">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="334">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">2.</text-property>
+                    </label>
+                </cell>
+                <cell id="25">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="115">
+                        <text-property name="text">Nature of Petition</text-property>
+                    </label>
+                </cell>
+                <cell id="26">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="390">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">nature_of_petition</property>
+                                <text-property name="displayName">nature_of_petition</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["nature_of_petition"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">nature_of_petition</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="27">
+                <cell id="28">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="335">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">3.</text-property>
+                    </label>
+                </cell>
+                <cell id="29">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="116">
+                        <text-property name="text">Name of the Petitioner</text-property>
+                    </label>
+                </cell>
+                <cell id="30">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="391">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">petitioner</property>
+                                <text-property name="displayName">petitioner</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["petitioner"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">petitioner</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="434">
+                <cell id="435">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="352">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">4.</text-property>
+                    </label>
+                </cell>
+                <cell id="436">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="438">
+                        <text-property name="text">Type of Petition</text-property>
+                    </label>
+                </cell>
+                <cell id="437">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="440">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">petition_type</property>
+                                <text-property name="displayName">petition_type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["petition_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">petition_type</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="348">
+                <cell id="349">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="336">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">5.</text-property>
+                    </label>
+                </cell>
+                <cell id="350">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="353">
+                        <text-property name="text">Name of the Respondents</text-property>
+                    </label>
+                </cell>
+                <cell id="351">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="392">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">respondent</property>
+                                <text-property name="displayName">respondent</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["respondent"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">respondent</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="31">
+                <cell id="32">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="340">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">6.</text-property>
+                    </label>
+                </cell>
+                <cell id="33">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="117">
+                        <text-property name="text">Subject</text-property>
+                    </label>
+                </cell>
+                <cell id="34">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="393">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">subject_keyword</property>
+                                <text-property name="displayName">subject_keyword</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["subject_keyword"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">subject_keyword</property>
+                    </data>
+                    <data id="394">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">subject_description</property>
+                                <text-property name="displayName">subject_description</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["subject_description"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">subject_description</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="35">
+                <cell id="36">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="339">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">7.</text-property>
+                    </label>
+                </cell>
+                <cell id="37">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="118">
+                        <text-property name="text">Whether Publication made (wherever applicable)</text-property>
+                    </label>
+                </cell>
+                <cell id="38">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="395">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">publicaton</property>
+                                <text-property name="displayName">publicaton</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["publicaton"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">publicaton</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="39">
+                <cell id="40">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="341">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">8.</text-property>
+                    </label>
+                </cell>
+                <cell id="41">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="119">
+                        <text-property name="text">Amount of Fees</text-property>
+                    </label>
+                </cell>
+                <cell id="42">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <text id="433">
+                        <property name="display">inline</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[&amp;#8377;]]></text-property>
+                    </text>
+                    <data id="396">
+                        <property name="display">inline</property>
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">fee_paid</property>
+                                <text-property name="displayName">fee_paid</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["fee_paid"]</expression>
+                                <property name="dataType">float</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">fee_paid</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="43">
+                <cell id="44">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="342">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">9.</text-property>
+                    </label>
+                </cell>
+                <cell id="45">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="120">
+                        <text-property name="text">UTR Number</text-property>
+                    </label>
+                </cell>
+                <cell id="46">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="398">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">utr_number</property>
+                                <text-property name="displayName">utr_number</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["utr_number"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">utr_number</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="47">
+                <cell id="48">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="381">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">10.</text-property>
+                    </label>
+                </cell>
+                <cell id="49">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="121">
+                        <text-property name="text">Date of Credit in the Commissions Account</text-property>
+                    </label>
+                </cell>
+                <cell id="50">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="399">
+                        <structure name="dateTimeFormat">
+                            <property name="category">Custom</property>
+                            <property name="pattern">dd/MM/yyyy</property>
+                        </structure>
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">deposit_date</property>
+                                <text-property name="displayName">deposit_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["deposit_date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">deposit_date</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="51">
+                <cell id="52">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="382">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">11.</text-property>
+                    </label>
+                </cell>
+                <cell id="53">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="122">
+                        <text-property name="text">Whether copies served to the respondents (wherever applicable)</text-property>
+                    </label>
+                </cell>
+                <cell id="54">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="400">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">copies</property>
+                                <text-property name="displayName">copies</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["copies"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">copies</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="91">
+                <cell id="92">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="383">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">12.</text-property>
+                    </label>
+                </cell>
+                <cell id="93">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="134">
+                        <text-property name="text">Whether filed under affidavit</text-property>
+                    </label>
+                </cell>
+                <cell id="94">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="401">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">affidavit</property>
+                                <text-property name="displayName">affidavit</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["affidavit"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">affidavit</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="95">
+                <cell id="96">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="386">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">13.</text-property>
+                    </label>
+                </cell>
+                <cell id="97">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="135">
+                        <text-property name="text">Whether annexure has been signed</text-property>
+                    </label>
+                </cell>
+                <cell id="98">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="402">
+                        <property name="dataSet">cercPetitionDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">annexure</property>
+                                <text-property name="displayName">annexure</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["annexure"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">annexure</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="107">
+                <cell id="108">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="439">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">14.</text-property>
+                    </label>
+                </cell>
+                <cell id="109">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <label id="138">
+                        <text-property name="text">Remarks</text-property>
+                    </label>
+                </cell>
+                <cell id="110">
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                </cell>
+            </row>
+        </grid>
+        <data id="430">
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">10pt</property>
+            <property name="dataSet">cercPetitionDataSet</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">petitioner</property>
+                    <text-property name="displayName">petitioner</text-property>
+                    <expression name="expression" type="javascript">"This Petition has been received from "+dataSetRow["petitioner"]+" with above particulars."</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">petitioner</property>
+        </data>
+        <label id="431">
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">100pt</property>
+            <text-property name="text">ASO</text-property>
+        </label>
+        <label id="432">
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">50pt</property>
+            <property name="marginBottom">0pt</property>
+            <text-property name="text">Bench Officer</text-property>
+        </label>
+    </body>
+</report>

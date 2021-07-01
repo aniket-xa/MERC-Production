@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+	<!-- <context:component-scan base-package="com.nic.cerc.rest.*" /> -->
+
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- <property name="host" value="smtp.gmail.com" /> <property name="port" 
+			value="465" /> <property name="protocol" value="smtp" /> <property name="username" 
+			value="cerc.admn@gmail.com" /> <property name="password" value="cercadmn" 
+			/> -->
+	</bean>
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<value>
+				resource.loader=class
+				class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+			</value>
+		</property>
+	</bean>
+
+
+	<bean id="applicationContextProvider"
+		class="com.nic.cerc.rest.ApplicationContextProvider" />
+
+	<bean id="cercRestService"
+		class="com.nic.cerc.service.serviceImpl.CercRestServiceImpl">
+		<property name="masterDao" ref="masterDao" />
+	</bean>
+
+	<bean id="masterService"
+		class="com.nic.cerc.service.serviceImpl.MasterServiceImpl">
+		<property name="mailSender" ref="mailSender" />
+		<property name="masterDao" ref="masterDao" />
+		<property name="velocityEngine" ref="velocityEngine" />
+	</bean>
+
+	<bean id="masterDao"
+		class="com.nic.cerc.dao.daoimpl.MasterDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- Database Beans -->
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close"> <property name="driverClassName" value="${jdbc.driver}" 
+		/> <property name="url" value="${jdbc.url}" /> <property name="username" 
+		value="${jdbc.username}" /> <property name="password" value="${jdbc.password}" 
+		/> <property name="minIdle" value="5" /> <property name="initialSize" value="1" 
+		/> <property name="maxIdle" value="100" /> <property name="maxWait" value="10000" 
+		/> <property name="maxActive" value="-1" /> </bean> -->
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${jdbc.datasource}</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		scope="singleton">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.connection.autocommit">true</prop>
+				<prop key="hibernate.connection.release_mode">after_statement</prop>
+				<!-- <prop key="hibernate.format_sql">${hibernate.format_sql}</prop> 
+					<prop key="hibernate.use_sql_comments">${hibernate.use_sql_comments}</prop> 
+					<prop key="hibernate.auto_close_session">${hibernate.auto_close_session}</prop> -->
+			</props>
+		</property>
+		<!-- <property name="configurationClass"> <value>org.hibernate.cfg.AnnotationConfiguration</value> 
+			</property> -->
+		<!-- <property name="hibernateProperties"> <props> <prop key="hibernate.show_sql">${hibernate.show_sql}</prop> 
+			<prop key="hibernate.dialect">${hibernate.dialect}</prop> <prop key="hibernate.format_sql">${hibernate.format_sql}</prop> 
+			<prop key="hibernate.use_sql_comments">${hibernate.use_sql_comments}</prop> 
+			<prop key="hibernate.auto_close_session">${hibernate.auto_close_session}</prop> 
+			configuration pool via c3p0 <prop key= "hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop> 
+			<prop key="hibernate.c3p0.acquire_increment">5</prop> <prop key="hibernate.c3p0.idle_test_period">1800</prop> 
+			<prop key="hibernate.c3p0.max_size">600</prop> <prop key="hibernate.c3p0.max_statements">50</prop> 
+			<prop key="hibernate.c3p0.min_size">5</prop> <prop key="hibernate.c3p0.timeout">1800</prop> 
+			</props> </property> -->
+
+
+
+		<!-- <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/> -->
+		<!-- <property name="hibernate.c3p0.acquire_increment" value="1"/> <property 
+			name="hibernate.c3p0.idle_test_period" value="100"/> <property name="hibernate.c3p0.max_size" 
+			value="10"/> <property name="hibernate.c3p0.max_statements" value="10"/> 
+			<property name="hibernate.c3p0.min_size" value="10"/> <property name="hibernate.c3p0.timeout" 
+			value="100"/> -->
+		<!-- <property name="hibernateProperties"> <props> -->
+		<!-- <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop> -->
+		<!-- <prop key="hibernate.c3p0.acquire_increment">1</prop> <prop key="hibernate.c3p0.idle_test_period">100</prop> 
+			<prop key="hibernate.c3p0.max_size">10</prop> <prop key="hibernate.c3p0.max_statements">10</prop> 
+			<prop key="hibernate.c3p0.min_size">10</prop> <prop key="hibernate.c3p0.timeout">100</prop> -->
+		<!-- <prop key="hibernate.dialect">${hibernate.dialect}</prop> -->
+		<!-- <prop key="hibernate.show_sql">${hibernate.show_sql}</prop> <prop 
+			key="use_outer_join">${hibernate.use_outer_join}</prop> <prop key="hibernate.cache.use_second_level_cache">false</prop> 
+			<prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop> 
+			<prop key="hibernate.cache.provider_class">${hibernate.cache.provider}</prop> -->
+		<!-- <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop> 
+			<prop key="hibernate.c3p0.acquire_increment">1</prop> <prop key="hibernate.c3p0.idle_test_period">100</prop> 
+			<prop key="hibernate.c3p0.max_size">10</prop> <prop key="hibernate.c3p0.max_statements">10</prop> 
+			<prop key="hibernate.c3p0.min_size">10</prop> <prop key="hibernate.c3p0.timeout">100</prop> -->
+		<!-- <prop key="hibernate.enable_lazy_load_no_trans">true</prop> -->
+		<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
+		<!-- <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate3.SpringSessionContext</prop> -->
+
+		<!-- <prop key="hibernate.connection.pool_size">100</prop> <prop key="hibernate.jdbc.batch_size">30</prop> -->
+		<!-- <prop key="hibernate.c3p0.timeout">25200</prop> -->
+		<!-- <prop key="hibernate.connection.release_mode">after_statement</prop> 
+			<prop key="hibernate.bytecode.use_reflection_optimizer">true</prop> -->
+		<!-- <prop key="hibernate.c3p0.max_statement">200</prop> <prop key="hibernate.c3p0.minPoolSize">100</prop> 
+			<prop key="hibernate.c3p0.maxPoolSize">500</prop> -->
+		<!-- <prop key="hibernate.c3p0.max_size">10</prop> <prop key="hibernate.c3p0.min_size">3</prop> 
+			<prop key="hibernate.c3p0.idle_test_period">300</prop> -->
+		<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
+		<!-- <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop> -->
+		<!-- </props> </property> -->
+
+		<property name="annotatedClasses">
+			<list>
+				<value>com.nic.cerc.pojo.registration.CercUser</value>
+				<value>com.nic.cerc.pojo.registration.CercUserDocuments</value>
+				<value>com.nic.cerc.pojo.registration.RefCity</value>
+				<value>com.nic.cerc.pojo.registration.RefClarificationQuestion
+				</value>
+				<value>com.nic.cerc.pojo.registration.CercClarificationQuestion
+				</value>
+				<value>com.nic.cerc.pojo.registration.RefCommunication</value>
+				<value>com.nic.cerc.pojo.registration.RefDocument</value>
+				<value>com.nic.cerc.pojo.registration.RefOrganisation</value>
+				<value>com.nic.cerc.pojo.registration.RefRejectionReason</value>
+				<value>com.nic.cerc.pojo.registration.CercRejectionReason</value>
+				<value>com.nic.cerc.pojo.registration.RefRole</value>
+				<value>com.nic.cerc.pojo.registration.RefState</value>
+				<value>com.nic.cerc.pojo.registration.RefStatus</value>
+				<value>com.nic.cerc.pojo.registration.RefUtility</value>
+				<value>com.nic.cerc.pojo.registration.RefOrganisationType</value>
+				<value>com.nic.cerc.pojo.registration.RefDisclaimer</value>
+
+				<!-- Filing Pojo -->
+				<!-- <value>com.nic.cerc.pojo.filing.CercPetition</value> -->
+				<value>com.nic.cerc.pojo.filing.RefPetitionType</value>
+				<value>com.nic.cerc.pojo.filing.RefPetitionSubType</value>
+				<value>com.nic.cerc.pojo.filing.RefPetitionSubSubType</value>
+				<value>com.nic.cerc.pojo.filing.RefRegion</value>
+				<value>com.nic.cerc.pojo.filing.RefSubject</value>
+				<value>com.nic.cerc.pojo.filing.RefNatureOfPetition</value>
+				<value>com.nic.cerc.pojo.filing.RefActs</value>
+				<value>com.nic.cerc.pojo.filing.RefRules</value>
+				<value>com.nic.cerc.pojo.filing.RefSection</value>
+				<value>com.nic.cerc.pojo.filing.RefSubSection</value>
+				<value>com.nic.cerc.pojo.filing.RefRegulation</value>
+				<value>com.nic.cerc.pojo.filing.RefKeyword</value>
+				<value>com.nic.cerc.pojo.filing.CercPetition</value>
+				<value>com.nic.cerc.pojo.filing.CercOtherPetitioner</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionFeeAdjustment</value>
+				<value>com.nic.cerc.pojo.filing.CercAnnualAssets</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionAnnualFee</value>
+				<!-- <value>com.nic.cerc.pojo.filing.CercRespondent</value> -->
+				<value>com.nic.cerc.pojo.filing.CercRegulation</value>
+				<value>com.nic.cerc.pojo.filing.CercKeyword</value>
+				<value>com.nic.cerc.pojo.filing.CercCourtDetails</value>
+				<value>com.nic.cerc.pojo.filing.RefAgencyState</value>
+				<value>com.nic.cerc.pojo.filing.RefAgencyName</value>
+				<value>com.nic.cerc.pojo.filing.CercPrayer</value>
+				<value>com.nic.cerc.pojo.filing.CercCourtOrder</value>
+				<value>com.nic.cerc.pojo.filing.CercIdenticalPetition</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionUtr</value>
+				<!-- <value>com.nic.cerc.pojo.filing.CercOtherRespondent</value> -->
+				<value>com.nic.cerc.pojo.filing.CercRelatedPetition</value>
+				<value>com.nic.cerc.pojo.filing.CercSection</value>
+				<value>com.nic.cerc.pojo.filing.RefChecklist</value>
+				<value>com.nic.cerc.pojo.filing.RefLicensingCategory</value>
+				<value>com.nic.cerc.pojo.filing.RefPetitionGroup</value>
+				<value>com.nic.cerc.pojo.filing.RefPetitionerRespondentMapping
+				</value>
+				<value>com.nic.cerc.pojo.filing.RefWaiverGrounds</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionDocuments</value>
+
+				<value>com.nic.cerc.pojo.filing.RefAssets</value>
+				<value>com.nic.cerc.pojo.filing.RefFeeStructure</value>
+				<value>com.nic.cerc.pojo.filing.RefTariffPeriod</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionFee</value>
+				<value>com.nic.cerc.pojo.filing.RefConfiguration</value>
+				<value>com.nic.cerc.pojo.filing.CercChecklist</value>
+				<value>com.nic.cerc.pojo.filing.RefGenerationTransmission</value>
+				<value>com.nic.cerc.pojo.filing.RefAuthority</value>
+				<value>com.nic.cerc.pojo.filing.RefAuthorityType</value>
+				<value>com.nic.cerc.pojo.filing.CercAssets</value>
+				<value>com.nic.cerc.pojo.filing.CercTrap</value>
+				<value>com.nic.cerc.pojo.filing.CercMasterTrap</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionPartyDetails</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionAdvocateDetails</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionNodalOfficerDetails
+				</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionFeeAdjustmentAsset
+				</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionDeficiencies</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionDeficienciesList</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionDeficienciesDocuments
+				</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionStatusDivision</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionLicenceDetails</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionAdditionalDetails
+				</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionConsultantDetails
+				</value>
+				<value>com.nic.cerc.pojo.filing.CercPetitionFeeReversal</value>
+				<!-- Pleadings Pojo -->
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionReply</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionReplyDocument</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionRejoinder</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionRejoinderDocument
+				</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionSubmission</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionSubmissionDocument
+				</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionAdditionalInformation
+				</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionAdditionalInformationDocument
+				</value>
+				<value>com.nic.cerc.pojo.pleadings.CercCommunication</value>
+				<value>com.nic.cerc.pojo.pleadings.CercCommunicationDocuments
+				</value>
+				<value>com.nic.cerc.pojo.pleadings.CercCommunicationPartyDetails
+				</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionRc</value>
+				<value>com.nic.cerc.pojo.pleadings.CercPetitionRcDocuments</value>
+
+				<!-- Master Pojo -->
+				<value>com.nic.cerc.pojo.master.RefUtr</value>
+				<value>com.nic.cerc.pojo.master.RefElementType</value>
+				<value>com.nic.cerc.pojo.master.RefElementSubType</value>
+				<value>com.nic.cerc.pojo.master.RefCostOverRunReason</value>
+				<value>com.nic.cerc.pojo.master.RefTimeOverRunReason</value>
+				<value>com.nic.cerc.pojo.master.RefReport</value>
+				<value>com.nic.cerc.pojo.master.RefAssetsDocument</value>
+				<value>com.nic.cerc.pojo.master.RefGenerationTransmissionDocument
+				</value>
+				<value>com.nic.cerc.pojo.master.RefStatusGroup</value>
+				<value>com.nic.cerc.pojo.master.CercPetitionAuthorisation</value>
+				<value>com.nic.cerc.pojo.master.RefPetitionSequenceGeneration
+				</value>
+				<value>com.nic.cerc.pojo.master.RefStatusPublicDomain</value>
+				<value>com.nic.cerc.pojo.master.RefStatusLevel2</value>
+				<value>com.nic.cerc.pojo.master.RefStatusLevel3</value>
+				<value>com.nic.cerc.pojo.master.RefDepartment</value>
+				<value>com.nic.cerc.pojo.master.RefJudges</value>
+				<value>com.nic.cerc.pojo.master.RefDocumentType</value>
+				<value>com.nic.cerc.pojo.master.RefDivision</value>
+				<value>com.nic.cerc.pojo.master.RefAdditionalDetails</value>
+				<!-- Help Pojo -->
+				<value>com.nic.cerc.pojo.help.CercStakeholderFeedback</value>
+				<value>com.nic.cerc.pojo.help.CercStakeholderCommunicationDocuments
+				</value>
+				<!-- Trap Pojo -->
+				<value>com.nic.cerc.pojo.trap.CercIdenticalPetitionTrap</value>
+				<value>com.nic.cerc.pojo.trap.CercRelatedPetitionTrap</value>
+				<value>com.nic.cerc.pojo.trap.CercUserLoginAttempt</value>
+				<value>com.nic.cerc.pojo.trap.CercUserLoginHistory</value>
+				<value>com.nic.cerc.pojo.trap.CercFileSynchronisation</value>
+				<!-- Listing Pojo -->
+				<value>com.nic.cerc.pojo.listing.CercPetitionListingDetails</value>
+				<value>com.nic.cerc.pojo.causelist.CercCauselist</value>
+				<!-- Common Pojo -->
+				<value>com.nic.cerc.pojo.common.CercEmailCommunication</value>
+				<value>com.nic.cerc.pojo.common.CercEmailCommunicationUsers</value>
+				<value>com.nic.cerc.pojo.common.CercSmsCommunication</value>
+				<value>com.nic.cerc.pojo.common.CercSmsCommunicationUsers</value>
+				<value>com.nic.cerc.pojo.common.CercUserResetPasswordRequestMapping
+				</value>
+				<value>com.nic.cerc.pojo.common.CercBulkCommunication</value>
+				<value>com.nic.cerc.pojo.common.CercBulkCommunicationDocuments
+				</value>
+				<!--  File Movemnt-->
+				<value>com.nic.cerc.filemovement.AuditLevelUserMapping</value>
+				<value>com.nic.cerc.filemovement.LevelUserMapping</value>
+				<value>com.nic.cerc.filemovement.AuditPetitionFileMovement</value>
+				<value>com.nic.cerc.filemovement.PetitiFileMovment</value>
+				<!--  Online PAyment Request -Responce-->
+				<value>com.nic.cerc.pay.TrasactionReq</value>
+				<value>com.nic.cerc.pay.TransactionRes</value>
+				<value>com.nic.cerc.pay.TransactionpushRes</value>
+			</list>
+		</property>
+		<property name="schemaUpdate"
+			value="${hibernate.schemaUpdate}" />
+	</bean>
+	<!-- Transaction controls Start -->
+	<!-- Tell Spring it should use @Transactional annotations -->
+
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="updateData">PROPAGATION_REQUIRED</prop>
+				<prop key="saveOrUpdate">PROPAGATION_REQUIRED</prop>
+				<prop key="saveOrUpdateAll">PROPAGATION_REQUIRED</prop>
+				<prop key="save">PROPAGATION_REQUIRED</prop>
+				<prop key="caseFilingSave">PROPAGATION_REQUIRED</prop>
+				<prop key="updateEcCase">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
